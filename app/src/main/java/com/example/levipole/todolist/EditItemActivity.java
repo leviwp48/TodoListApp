@@ -1,10 +1,20 @@
 package com.example.levipole.todolist;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Date;
 
 import static com.example.levipole.todolist.MainActivity.ITEM_POSITION;
 import static com.example.levipole.todolist.MainActivity.ITEM_TEXT;
@@ -14,13 +24,22 @@ public class EditItemActivity extends AppCompatActivity {
 
     // track edit text
     EditText etItemText;
+    // track edit date
+    EditText etItemDate;
+    // track edit priority
+    Spinner etItemPriority;
     // position of edited item in list
     int position;
+
+    ArrayList<String> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
+        readItems();
+        // settings items array
+        items = getIntent().getStringArrayListExtra("items");
         // resolve edit text from layout
         etItemText = (EditText) findViewById(R.id.etItemText);
         // set edit text value from intent extra
@@ -29,6 +48,14 @@ public class EditItemActivity extends AppCompatActivity {
         position = getIntent().getIntExtra(ITEM_POSITION, 0);
         // update the title bar of the activity
         getSupportActionBar().setTitle("Edit Item");
+
+        // resolve edit date from layout
+        etItemDate = (EditText) findViewById(R.id.etItemDate);
+        // set edit date from file
+
+        // resolve edit priority from layout
+        etItemPriority = (Spinner) findViewById(R.id.etItemPriority);
+        // set edit priority from file
     }
 
     // handler for save button
@@ -43,5 +70,27 @@ public class EditItemActivity extends AppCompatActivity {
         setResult(RESULT_OK, i);
         // close the activity and redirect to main
         finish();
+    }
+
+    private File getDataFile(){
+        // Using android storage stystem
+        return new File(getFilesDir(), "todo.txt");
+    }
+
+    private void readItems(){
+        try {
+            items = new ArrayList<>(FileUtils.readLines(getDataFile(), Charset.defaultCharset()));
+        } catch (IOException e) {
+            Log.e("MainActivity", "Error reading file", e);
+            items = new ArrayList<>();
+        }
+    }
+
+    private void writeItems() {
+        try {
+            FileUtils.writeLines(getDataFile(), items);
+        } catch (IOException e){
+            Log.e("MainActivity", "Error writing file", e);
+        }
     }
 }

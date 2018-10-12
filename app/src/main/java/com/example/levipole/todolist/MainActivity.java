@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     // keys used for passing data between activities
     public final static String ITEM_TEXT = "itemText";
     public final static String ITEM_POSITION = "itemPosition";
+   // public final static String ITEM_DATE = "itemDate";
+   // public final static String ITEM_PRIORITY = "itemPriority";
 
 
     ArrayList<String> items;
@@ -92,8 +94,13 @@ public class MainActivity extends AppCompatActivity {
 
                 // pass the data being edited
                 // Extras: extra values included with intent and passed to activity
+                // i.putExtra(ITEM_DATE, items.get(position));
+                // i.putExtra(ITEM_PRIORITY, items.get(position));
                 i.putExtra(ITEM_TEXT, items.get(position));
                 i.putExtra(ITEM_POSITION, position);
+
+                // sending items array
+                i.putExtra("items", items);
 
                 // display the activity to the user
                 startActivityForResult(i, EDIT_REQUEST_CODE);
@@ -111,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             String updatedItem = data.getExtras().getString(ITEM_TEXT);
             // extract original position of edited item
             int position = data.getExtras().getInt(ITEM_POSITION);
-            // update the model with the new item text at teh edited position
+            // update the model with the new item text at the edited position
             items.set(position, updatedItem);
             // nofiy the adapter that the model changed
             itemsAdapter.notifyDataSetChanged();
