@@ -21,15 +21,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    // a numberic code to identify the edit activity
+    // a numeric code to identify the edit activity
     // 20 arbitrary, simply a number for identifying the activity
     public final static int EDIT_REQUEST_CODE = 20;
     // keys used for passing data between activities
     public final static String ITEM_TEXT = "itemText";
     public final static String ITEM_POSITION = "itemPosition";
-   // public final static String ITEM_DATE = "itemDate";
-   // public final static String ITEM_PRIORITY = "itemPriority";
-
 
     ArrayList<String> items;
     ArrayAdapter<String> itemsAdapter;
@@ -94,13 +91,9 @@ public class MainActivity extends AppCompatActivity {
 
                 // pass the data being edited
                 // Extras: extra values included with intent and passed to activity
-                // i.putExtra(ITEM_DATE, items.get(position));
-                // i.putExtra(ITEM_PRIORITY, items.get(position));
+
                 i.putExtra(ITEM_TEXT, items.get(position));
                 i.putExtra(ITEM_POSITION, position);
-
-                // sending items array
-                i.putExtra("items", items);
 
                 // display the activity to the user
                 startActivityForResult(i, EDIT_REQUEST_CODE);

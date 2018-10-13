@@ -12,6 +12,8 @@
         android:id="@+id/etItemText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="96dp"
         android:ems="10"
         android:hint="Enter item description"
         android:inputType="textMultiLine"
@@ -33,61 +35,12 @@
         android:id="@+id/itemDescriptionText"
         android:layout_width="126dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:text="Description"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/itemDateText"
-        android:layout_width="126dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="88dp"
-        android:fontFamily="sans-serif"
-        android:text="Date"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/itemPriorityText"
-        android:layout_width="126dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="172dp"
-        android:fontFamily="sans-serif"
-        android:text="Priority"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etItemDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
-
-    <Spinner
-        android:id="@+id/etItemPriority"
-        android:layout_width="201dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
 
 </android.support.constraint.ConstraintLayout>
