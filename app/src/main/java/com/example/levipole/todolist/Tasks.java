@@ -1,16 +1,18 @@
 package com.example.levipole.todolist;
 
+import java.util.Date;
+
 public class Tasks {
 
     // Store text
     private String text;
     // Store date
-    private String itemDate;
+    private Date itemDate;
     // Store priority
     private int priority;
 
     // Constructor
-    public Tasks(String text, String itemDate, int priority)
+    public Tasks(String text, Date itemDate, int priority)
     {
         this.text = text;
         this.itemDate = itemDate;
@@ -18,7 +20,6 @@ public class Tasks {
     }
 
     // Setter and Getter
-
     public String getText() {
         return text;
     }
@@ -27,19 +28,19 @@ public class Tasks {
         this.text = text;
     }
 
-    public String getItemDate() {
-        return itemDate;
-    }
-
-    public void setItemDate(String itemDate) {
-        this.itemDate = itemDate;
-    }
-
     public int getPriority() {
         return priority;
     }
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+    public void setItemDate(Date date) {
+        this.itemDate = date;
+    }
+
+    public Date getItemDate(){
+        return itemDate;
     }
 }

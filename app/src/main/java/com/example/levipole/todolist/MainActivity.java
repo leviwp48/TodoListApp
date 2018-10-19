@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> items;
     ArrayAdapter<String> itemsAdapter;
+    private CustomAdapter mAdapter;
     ListView lvItems;
 
     @Override

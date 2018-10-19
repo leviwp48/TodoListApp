@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +41,13 @@ public class CustomAdapter extends ArrayAdapter<Tasks> {
         TextView text = (TextView)listItem.findViewById(R.id.itemText);
         text.setText(currentTask.getText());
 
-        TextView date = (TextView)listItem.findViewById(R.id.itemDate);
-        date.setItemDate(currentTask.getItemDate());
+        EditText date = (EditText)listItem.findViewById(R.id.itemDate);
+        currentTask.setItemDate(currentTask.getItemDate());
 
-        return super.getView(position, convertView, parent);
+        EditText Priority = (EditText) listItem.findViewById(R.id.itemPriority);
+        currentTask.setPriority(currentTask.getPriority());
+
+        return  listItem;
     }
 
 }
