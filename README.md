@@ -21,7 +21,7 @@ This is an android app that allows building a todo list and basic todo items man
 
 Here's a walkthrough of implemented features:
 
-<img src="https://github.com/leviwp48/TodoListApp/blob/master/Walkthrough.gif" > Video Walkthrough </img>
+<img src="https://github.com/leviwp48/TodoListApp/blob/master/Walkthrough.gif"/>
 
 ## License
 
